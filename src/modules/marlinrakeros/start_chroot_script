@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -xe
+
+source /common.sh
+install_cleanup_trap
+
+apt update && apt upgrade -y

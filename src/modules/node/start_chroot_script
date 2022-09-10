@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -xe
+
+source /common.sh
+install_cleanup_trap
+
+cd /home/pi/
+wget -O node.tar.gz https://unofficial-builds.nodejs.org/download/release/v16.17.0/node-v16.17.0-linux-armv6l.tar.gz
+tar -xzvf node.tar.gz
+mv node-* node
+cp -R node/* /usr/local/

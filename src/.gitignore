@@ -1,0 +1,8 @@
+custompios_path
+
+image/*
+!image/README
+
+build.log
+
+workspace*/

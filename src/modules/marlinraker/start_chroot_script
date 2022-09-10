@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -xe
+
+source /common.sh
+install_cleanup_trap
+
+unpack /filesystem / pi
+
+# TODO: download latest github release and unzip it to /home/pi/marlinraker
+
+cd /home/pi/marlinraker
+sudo -u pi npm install
+
+systemctl_if_exists enable marlinraker.service

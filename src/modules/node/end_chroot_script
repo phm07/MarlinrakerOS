@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -xe
+
+source /common.sh
+install_cleanup_trap
+
+cd /home/pi/
+rm node.tar.gz
+rm -r node/
