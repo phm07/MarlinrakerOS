@@ -6,7 +6,7 @@ StartLimitIntervalSec=60
 Type=simple
 User=pi
 WorkingDirectory=/home/pi/marlinraker
-ExecStart=/usr/local/bin/node /home/pi/marlinraker --silent
+ExecStart=/usr/local/bin/npm run start -- --silent
 Restart=always
 StartLimitBurst=3
 
