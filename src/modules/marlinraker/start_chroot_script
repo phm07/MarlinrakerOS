@@ -7,9 +7,14 @@ install_cleanup_trap
 
 unpack /filesystem / pi
 
-# TODO: download latest github release and unzip it to /home/pi/marlinraker
-
+sudo -u pi mkdir -p /home/pi/marlinraker
 cd /home/pi/marlinraker
+
+wget -O marlinraker.zip "$(curl -s "https://api.github.com/repos/pauhull/marlinraker/releases/latest" | grep -o "http.*${3:-\.zip}")"
+unzip marlinraker.zip
+rm marlinraker.zip
+chown -R pi:pi /home/pi/marlinraker
+
 sudo -u pi npm install
 
 systemctl_if_exists enable marlinraker.service
