@@ -1,10 +1,9 @@
 export DIST_NAME=MarlinrakerOS
-export DIST_VERSION=0.1.0
+export DIST_VERSION=0.1.1
 
 export RPI_IMAGER_NAME="${DIST_NAME}"
-export RPI_IMAGER_DESCRIPTION="A raspberrypi distro built with CustomPiOS"
-export RPI_IMAGER_WEBSITE="https://github.com/guysoft/CustomPiOS"
+export RPI_IMAGER_DESCRIPTION="Raspberry Pi Image for Marlinraker"
+export RPI_IMAGER_WEBSITE="https://github.com/pauhull/MarlinrakerOS"
 export RPI_IMAGER_ICON="https://raw.githubusercontent.com/guysoft/CustomPiOS/devel/media/rpi-imager-CustomPiOS.png"
 
 export MODULES="base(default-user,network,piconfig,marlinrakeros(nginx,node,marlinraker))"
-
