@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -xe
+
+source /common.sh
+install_cleanup_trap
+
+unpack /filesystem /
+
+sed -i 's/console=serial0,115200 //' "/boot/cmdline.txt"
