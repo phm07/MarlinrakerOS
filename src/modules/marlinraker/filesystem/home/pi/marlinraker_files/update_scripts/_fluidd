@@ -1,0 +1,18 @@
+#!/bin/bash
+
+REPO_OWNER="fluidd-core"
+REPO_NAME="fluidd"
+DIR="/home/pi/marlinraker_files/www"
+
+source "/home/pi/marlinraker_files/update_scripts/_common.sh"
+
+if [ $# -eq 0 ]; then
+    echo "Possible arguments: --info (-i), --update (-u)"
+    exit 1
+fi
+
+case $1 in
+    -i|--info) get_info $REPO_OWNER $REPO_NAME $DIR;;
+    -u|--update) do_update $REPO_OWNER $REPO_NAME $DIR;;
+    *) echo "Unknown task \"$1\""; exit 1;;
+esac

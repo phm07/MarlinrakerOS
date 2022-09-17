@@ -1,0 +1,32 @@
+#!/bin/bash
+
+REPO_OWNER="pauhull"
+REPO_NAME="marlinraker"
+DIR="/home/pi/marlinraker"
+
+source "/home/pi/marlinraker_files/update_scripts/_common.sh"
+
+if [ $# -eq 0 ]; then
+    echo "Possible arguments: --info (-i), --update (-u)"
+    exit 1
+fi
+
+function install {
+    temp_dir=$(mktemp -d)
+    mv "$DIR/node_modules" "$temp_dir/node_modules"
+    mv "$DIR/package-lock.json" "$temp_dir/package-lock.json"
+    do_update $REPO_OWNER $REPO_NAME $DIR
+    cd $DIR
+    mv "$temp_dir/node_modules" "$DIR/node_modules"
+    mv "$temp_dir/package-lock.json" "$DIR/package-lock.json"
+    rm -r "$temp_dir"
+    echo "Installing npm packages..."
+    npm install
+    sudo systemctl restart marlinraker
+}
+
+case $1 in
+    -i|--info) get_info $REPO_OWNER $REPO_NAME $DIR;;
+    -u|--update) install;;
+    *) echo "Unknown task \"$1\""; exit 1;;
+esac
